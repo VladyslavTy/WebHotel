@@ -1,32 +1,32 @@
 {
   "reservations": [
     {
-      "id" : "1",
-      "name" : "Vladimir Putin",
-      "room" : "15",
-      "startBooking" : "2018-07-15",
-      "endBooking" : "2018-07-16"
+      "id": 1,
+      "name": "Vladimir Putin",
+      "room": "SGL, Luxury",
+      "startBooking": "2018-07-1",
+      "endBooking": "2018-07-11"
     },
     {
-      "id" : "2",
-      "name" : "Kim Jong-un",
-      "room" : "21",
-      "startBooking" : "2018-07-15",
-      "endBooking" : "2018-07-23"
+      "id": 2,
+      "name": "Kim Jong-un",
+      "room": "DBL, Luxury",
+      "startBooking": "2018-07-28",
+      "endBooking": "2018-08-15"
     },
     {
-      "id" : "3",
-      "name" : "Petro Poroshenko",
-      "room" : "15",
-      "startBooking" : "2018-07-17",
-      "endBooking" : "2018-07-18"
+      "id": 3,
+      "name": "Petro Poroshenko",
+      "room": "DBL, Standard",
+      "startBooking": "2018-07-17",
+      "endBooking": "2018-07-18"
     },
     {
-      "id" : "4",
-      "name" : "Maxim Galkin",
-      "room" : "9",
-      "startBooking" : "2018-07-15",
-      "endBooking" : "2018-07-16"
+      "name": "Julia Timoshenko",
+      "room": "SGL, Luxury",
+      "startBooking": "2018-08-20",
+      "endBooking": "2018-08-31",
+      "id": 4
     }
   ]
 }
