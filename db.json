@@ -28,5 +28,57 @@
       "endBooking": "2018-08-31",
       "id": 4
     }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "number": 13,
+      "category": "Luxury",
+      "type": "DBL"
+    },
+    {
+      "id": 2,
+      "number": 14,
+      "category": "Standard",
+      "type": "DBL"
+    },
+    {
+      "id": 3,
+      "number": 15,
+      "category": "Economy",
+      "type": "SGL"
+    },
+    {
+      "id": 4,
+      "number": 16,
+      "category": "Economy",
+      "type": "SGL"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "firstname": "Oleg",
+      "secondname": "Vinnik",
+      "phone": "+380979929999"
+    },
+    {
+      "id": 2,
+      "firstname": "Maxim",
+      "secondname": "Galkin",
+      "phone": "+380979929991"
+    },
+    {
+      "id": 3,
+      "firstname": "Michael",
+      "secondname": "Gorshnev",
+      "phone": "+380979929992"
+    },
+    {
+      "id": 4,
+      "firstname": "Michael",
+      "secondname": "Gorshnev",
+      "phone": "+380979922292"
+    }
   ]
 }
