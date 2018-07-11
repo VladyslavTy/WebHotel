@@ -2,31 +2,51 @@
   "reservations": [
     {
       "id": 1,
-      "name": "Vladimir Putin",
-      "room": "SGL, Luxury",
+      "bookingNumber": 1,
+      "client": {
+        "id": 1,
+        "firstname": "Vladimir",
+        "secondname": "Putin",
+        "phone": "+380979929999"
+      },
+      "room": {
+        "id": 2,
+        "number": 14,
+        "category": "Standard",
+        "type": "DBL"
+      },
       "startBooking": "2018-07-1",
       "endBooking": "2018-07-11"
     },
     {
-      "id": 2,
-      "name": "Kim Jong-un",
-      "room": "DBL, Luxury",
-      "startBooking": "2018-07-28",
-      "endBooking": "2018-08-15"
+      "client": {
+        "firstname": "Влад",
+        "secondname": "Тимофеев",
+        "phone": "666477563"
+      },
+      "room": {
+        "number": "1",
+        "category": "Luxury",
+        "type": "SGL"
+      },
+      "startBooking": "2018-07-05",
+      "finishBooking": "2018-07-18",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Petro Poroshenko",
-      "room": "DBL, Standard",
-      "startBooking": "2018-07-17",
-      "endBooking": "2018-07-18"
-    },
-    {
-      "name": "Julia Timoshenko",
-      "room": "SGL, Luxury",
-      "startBooking": "2018-08-20",
-      "endBooking": "2018-08-31",
-      "id": 4
+      "client": {
+        "firstname": "Влад",
+        "secondname": "Тимофеев",
+        "phone": "666477563"
+      },
+      "room": {
+        "number": "1",
+        "category": "Luxury",
+        "type": "SGL"
+      },
+      "startBooking": "",
+      "finishBooking": "",
+      "id": 3
     }
   ],
   "rooms": [
@@ -58,8 +78,8 @@
   "clients": [
     {
       "id": 1,
-      "firstname": "Oleg",
-      "secondname": "Vinnik",
+      "firstname": "Vladimir",
+      "secondname": "Putin",
       "phone": "+380979929999"
     },
     {

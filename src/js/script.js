@@ -4,8 +4,8 @@ const URL_CLIENTS = "http://localhost:3000/clients";
 
 function updateBookingElement(bookingElement, booking) {
     bookingElement.querySelector('.bookingNumber').innerText = booking.id;
-    bookingElement.querySelector('.name').innerText = booking.name;
-    bookingElement.querySelector('.room').innerText = booking.room;
+    bookingElement.querySelector('.name').innerText = booking.client.firstname + " " + booking.client.secondname;
+    bookingElement.querySelector('.room').innerText = booking.room.number;
     bookingElement.querySelector('.startPeriod').innerText = booking.startBooking;
     bookingElement.querySelector('.endPeriod').innerText = booking.endBooking;
 }
@@ -20,23 +20,58 @@ function loadBooking() {
 }
 
 function createBooking() {
-    let name = document.getElementById("name").value;
+    let fname = document.getElementById("firstname").value;
+    let lname = document.getElementById("lastname").value;
     let phone = document.getElementById("phone").value;
-    let roomCharacteristic = document.getElementById("inputGroupSelect02").value + ", " + document.getElementById("inputGroupSelect01").value;
+    let category = document.getElementById("inputGroupCategory").value;
+    let size = document.getElementById("inputGroupSize").value;
+    let roomn =  document.getElementById("inputGroupRoom").value;
     let startBooking = document.getElementById("startBooking").value;
     let finishBooking = document.getElementById("finishBooking").value;
 
-    return fetch(URL, {
+    fetch(URL, {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
             method: 'post',
-            body: JSON.stringify({name : name, room : roomCharacteristic, startBooking: startBooking, endBooking: finishBooking})
+            body: JSON.stringify({
+                client : {
+                    firstname : fname,
+                    secondname : lname,
+                    phone : phone
+                },
+                room : {
+                    number : roomn,
+                    category : category,
+                    type : size
+                },
+                startBooking : startBooking,
+                finishBooking : finishBooking
+            })
         }
     )
         .then(r => r.json())
-        .then(loadBooking)
+        .then(loadBooking);
+
+
+}
+
+function createXlient() {
+
+    fetch(URL_CLIENTS ,{
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        method: 'post',
+        body: JSON.stringify({
+            firstname : fname,
+            secondname : sname,
+            phone: phone
+        })
+    });
+
 }
 
 
@@ -45,8 +80,8 @@ function renderBooking(bookingsList) {
     let bookingElement = templateEl.content.querySelector(".booking");
     let bookingList = document.getElementById('bookings');
     bookingList.innerHTML = " ";
-    for( let booking of bookingsList ){
-        let bookingClone =  bookingElement.cloneNode(true);
+    for (let booking of bookingsList) {
+        let bookingClone = bookingElement.cloneNode(true);
         updateBookingElement(bookingClone, booking);
         bookingList.appendChild(bookingClone);
     }
@@ -57,11 +92,11 @@ function renderRooms(roomList) {
     let roomElement = templateEl.content.querySelector(".room");
     let roomsList = document.getElementById('rooms');
     roomsList.innerHTML = " ";
-    for( let room of roomList ){
-        let roomClone =  roomElement.cloneNode(true);
+    roomList.forEach((room) => {
+        let roomClone = roomElement.cloneNode(true);
         updateRoomElement(roomClone, room);
         roomsList.appendChild(roomClone);
-    }
+    });
 }
 
 function updateRoomElement(roomElement, room) {
@@ -84,8 +119,8 @@ function renderClients(clientList) {
     let clientElement = templateEl.content.querySelector(".client");
     let clientsList = document.getElementById('clients');
     clientsList.innerHTML = " ";
-    for( let client of clientList ){
-        let clientClone =  clientElement.cloneNode(true);
+    for (let client of clientList) {
+        let clientClone = clientElement.cloneNode(true);
         updateClientElement(clientClone, client);
         clientsList.appendChild(clientClone);
     }
@@ -108,11 +143,11 @@ function loadClients() {
 }
 
 function deleteClient(obj) {
-    let id = obj.parentElement.parentElement.querySelector(".clientNumber").innerHTML;
+    let id = obj.parentElement.parentElement.querySelector(".bookingNumber").innerHTML;
 
-    fetch(URL_CLIENTS + '/' + id, {
+    fetch(URL + '/' + id, {
         method: 'delete'
     })
         .then(r => r.json())
-        .then(loadClients)
+        .then(loadBooking)
 }

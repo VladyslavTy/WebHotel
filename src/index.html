@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><title>Hotel</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js"></script>
 
@@ -30,14 +30,21 @@
         <td class="room"></td>
         <td class="startPeriod"></td>
         <td class="endPeriod"></td>
-      </tr>
+        <td class="d-flex col-12">
+            <button type="button" class="btn btn-outline-info btn-sm col-5 mr-1">Edit</button>
+            <button type="button" class="btn btn-outline-danger btn-sm col-6" id="deleteBooking"
+                    onclick="deleteClient(this)">
+                Delete
+            </button>
+        </td>
+    </tr>
 </template>
 <template id="roomList">
     <tr class="room border border-gray">
         <td class="roomNumber"></td>
         <td class="room-size"></td>
         <td class="room-category"></td>
-   </tr>
+    </tr>
 </template>
 <template id="clientList">
     <tr class="client border border-gray">
@@ -45,35 +52,34 @@
         <td class="clientfName"></td>
         <td class="clientsName"></td>
         <td class="clientPhone"></td>
-        <td><button type="button" class="btn btn-outline-warning">Edit</button></td>
-        <td ><button type="button" class="btn btn-outline-danger" id="deleteBooking" onclick="deleteClient(this)" >Delete</button></td>
-
     </tr>
 </template>
 
 <div class="row booking-area col-lg-12" id="booking-area">
     <div class="col-lg-2 "></div>
-        <div class="col-md-8">
-            <table class="table " id="bookingTable">
-                <thead class="thead-dark border border-dark">
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Room Characteristics</th>
-                    <th>Start of Booking</th>
-                    <th>Finish of Booking</th>
-
-                </thead>
-                <tbody id="bookings" class="bookings">
-                </tbody>
-            </table>
-        </div>
+    <div class="col-md-8">
+        <table class="table shadow" id="bookingTable">
+            <thead class="thead-dark border border-dark">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Room</th>
+                <th>Start of Booking</th>
+                <th>Finish of Booking</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="bookings" class="bookings">
+            </tbody>
+        </table>
+    </div>
     <div class="col-md-2"></div>
 </div>
 
 <div class="row rooms-area col-lg-12" id="rooms-area">
     <div class="col-md-2 "></div>
     <div class="col-md-8">
-        <table class="table " id="roomsTable">
+        <table class="table shadow" id="roomsTable">
             <thead class="thead-dark border border-dark">
             <th>Number</th>
             <th>Size</th>
@@ -89,14 +95,12 @@
 <div class="row clients-area col-lg-12" id="clients-area">
     <div class="col-md-2 "></div>
     <div class="col-md-8">
-        <table class="table " id="clientsTable">
+        <table class="table shadow" id="clientsTable">
             <thead class="thead-dark border border-dark">
             <th>Number</th>
             <th>Firstname</th>
             <th>Secondname</th>
-            <th>Phone</th><th>Actions</th>
-            <th></th>
-
+            <th>Phone</th>
             </thead>
             <tbody id="clients" class="clients">
             </tbody>
@@ -105,55 +109,79 @@
     <div class="col-md-2"></div>
 </div>
 <!--<button class="btn btn-success" onclick="modalForm()"></button>-->
+<div class="booking-form col-md-5 border ">
+    <form class="form" id="form">
+        <div class="form-row col-12">
+            <div class="form-group col-4 mb-3">
+                <label>First name</label>
+                <input type="text" class="form-control" id="firstname" placeholder="First name">
+            </div>
+            <div class="form-group col-4 mb-3">
+                <label>Last name</label>
+                <input type="text" class="form-control" id="lastname" placeholder="Last name">
+            </div>
+            <div class="form-group col-4 mb-3">
+                <label>Phone</label>
+                <input type="text" class="form-control" id="phone" placeholder="Phone">
+            </div>
+        </div>
+        <div class="form-row col-12">
+            <div class="form-group col-4 mb-2">
+                <label>Category</label>
+                <select class="custom-select" id="inputGroupCategory">
+                    <option value="Luxury">Luxury</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Economy">Economy</option>
+                </select>
+            </div>
 
-<div class="booking-form">
+            <div class="form-group col-4 mb-2">
+                <label>Size</label>
+                <select class="custom-select" id="inputGroupSize">
+                    <option value="SGL">SGL</option>
+                    <option value="DBL">DBL</option>
+                </select>
+            </div>
 
-    <form role="form"  id="form">
-        <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Firstname, Lastname">
+            <div class="form-group col-4 mb-3">
+                <label>Room</label>
+                <select class="custom-select" id="inputGroupRoom">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                </select>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label>Phone</label>
-            <input type="text" class="form-control" id="phone" placeholder="Phone">
+        <div class="form-row col-12 mb-2">
+            <label for="startBooking" class="col-5">Start Booking Date</label>
+            <label for="finishBooking" class="col-5">Finish Booking Date</label>
+        </div>
+        <div class="form-row col-12 mb-2">
+            <div class="form-group col-5">
+                <input type="date" class="form-control" id="startBooking">
+            </div>
+            <div class="form-group col-5">
+                <input type="date" class="form-control" id="finishBooking">
+            </div>
+            <div class="form-group col-2" style="margin-top: 1px">
+                <button type="submit" onclick="createBooking()" class="btn btn-success col-12">Add</button>
+            </div>
         </div>
 
-        <div class="form-group">
-            <select class="custom-select" id="inputGroupSelect01">
-                <option selected>Choose...</option>
-                <option value="Luxury">Luxury</option>
-                <option value="Standard">Standard</option>
-                <option value="Economy">Economy</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <select class="custom-select" id="inputGroupSelect02">
-                <option selected>Choose...</option>
-                <option value="SGL">SGL</option>
-                <option value="DBL">DBL</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Start Booking Date</label>
-            <input type="date" class="form-control" id="startBooking">
-        </div>
-
-        <div class="form-group">
-            <label>Finish Booking Date</label>
-            <input type="date" class="form-control" id="finishBooking">
-        </div>
-
-        <button type="submit" class="btn btn-success">Add</button>
-    </form></div>
-
+    </form>
 </div>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
