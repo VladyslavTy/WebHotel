@@ -78,7 +78,6 @@ function createClient() {
 
 }
 
-
 function renderBooking(bookingsList) {
     let templateEl = document.getElementById('bookingList');
     let bookingElement = templateEl.content.querySelector(".booking");
@@ -161,4 +160,27 @@ function deleteClient(obj) {
 function openCreatingForm() {
     document.getElementById("booking-area").style.display = "none";
     document.getElementById("booking-container").style.display = "flex";
+}
+
+function formRoomsGroup() {
+
+
+    fetch(URL_ROOMS)
+        .then(r => r.json())
+        .then(createRoomSelect)
+}
+
+function createRoomSelect(roomsList) {
+    let roomContainer = document.getElementById("inputGroupRoom");
+    roomContainer.innerHTML = "";
+    roomsList.forEach(room =>{
+        if(room.category === document.getElementById("inputGroupCategory").value &&
+            room.type === document.getElementById("inputGroupSize").value){
+            let elem = document.createElement('option');
+            elem.value = room.number;
+            elem.innerText = room.number;
+            roomContainer.appendChild(elem);
+        }
+    })
+
 }

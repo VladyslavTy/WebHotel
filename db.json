@@ -59,6 +59,21 @@
       "startBooking": "2018-07-30",
       "endBooking": "2018-07-31",
       "id": 4
+    },
+    {
+      "client": {
+        "firstname": "Vladislav",
+        "secondname": "Timofeev",
+        "phone": "+380666477563"
+      },
+      "room": {
+        "number": "1",
+        "category": "Luxury",
+        "type": "SGL"
+      },
+      "startBooking": "2018-07-30",
+      "endBooking": "2018-07-31",
+      "id": 5
     }
   ],
   "rooms": [
@@ -111,6 +126,12 @@
       "secondname": "Timofeev",
       "phone": "+380666477563",
       "id": 9
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Timofeev",
+      "phone": "+380666477563",
+      "id": 10
     }
   ]
 }
