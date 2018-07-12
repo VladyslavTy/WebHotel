@@ -63,16 +63,16 @@
     {
       "client": {
         "firstname": "Vladislav",
-        "secondname": "Timofeev",
+        "secondname": "Paporotnik",
         "phone": "+380666477563"
       },
       "room": {
-        "number": "1",
-        "category": "Luxury",
+        "number": "3",
+        "category": "Economy",
         "type": "SGL"
       },
-      "startBooking": "2018-07-30",
-      "endBooking": "2018-07-31",
+      "startBooking": "2018-07-19",
+      "endBooking": "2018-07-28",
       "id": 5
     }
   ],
@@ -91,7 +91,7 @@
     },
     {
       "id": 3,
-      "number": 15,
+      "number": 3,
       "category": "Economy",
       "type": "SGL"
     },
@@ -132,6 +132,78 @@
       "secondname": "Timofeev",
       "phone": "+380666477563",
       "id": 10
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Berezovskiy",
+      "phone": "+380666477563",
+      "id": 11
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Berezovskiy",
+      "phone": "+380666477563",
+      "id": 12
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Berezovskiy",
+      "phone": "+380666477563",
+      "id": 13
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Berezovskiy",
+      "phone": "+380666477563",
+      "id": 14
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Paporotnik",
+      "phone": "+380666477563",
+      "id": 15
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Paporotnik",
+      "phone": "+380666477563",
+      "id": 16
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Paporotnik",
+      "phone": "+380666477563",
+      "id": 17
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Paporotnik",
+      "phone": "+380666477563",
+      "id": 18
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Paporotnik",
+      "phone": "+380666477563",
+      "id": 19
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Paporotnik",
+      "phone": "+380666477563",
+      "id": 20
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Paporotnik",
+      "phone": "+380666477563",
+      "id": 21
+    },
+    {
+      "firstname": "Vladislav",
+      "secondname": "Paporotnik",
+      "phone": "+380666477563",
+      "id": 22
     }
   ]
 }

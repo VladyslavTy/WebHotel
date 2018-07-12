@@ -53,9 +53,18 @@ function createBooking() {
         }
     )
         .then(r => r.json())
-        .then(loadBooking);
+        .then(loadBooking)
 
 
+}
+
+function deleteBooking(obj) {
+    let id = obj.parentElement.parentElement.querySelector(".bookingNumber").innerHTML;
+    fetch(URL + '/' + id, {
+        method: 'delete'
+    })
+        .then(r => r.json())
+        .then(loadBooking)
 }
 
 function createClient() {
@@ -147,24 +156,12 @@ function loadClients() {
         .then(renderClients);
 }
 
-function deleteClient(obj) {
-    let id = obj.parentElement.parentElement.querySelector(".bookingNumber").innerHTML;
-
-    fetch(URL + '/' + id, {
-        method: 'delete'
-    })
-        .then(r => r.json())
-        .then(loadBooking)
-}
-
 function openCreatingForm() {
     document.getElementById("booking-area").style.display = "none";
     document.getElementById("booking-container").style.display = "flex";
 }
 
 function formRoomsGroup() {
-
-
     fetch(URL_ROOMS)
         .then(r => r.json())
         .then(createRoomSelect)
@@ -183,4 +180,47 @@ function createRoomSelect(roomsList) {
         }
     })
 
+}
+
+function validateForm() {
+    return (validate(firstname, /^[A-Za-zА-Яа-я]+$/) &&
+    validate(lastname, /^[A-Za-zА-Яа-я]+$/) &&
+    validate(phone, /\d{12}/) &&
+    validate(inputGroupRoom, /\d/))
+}
+
+function validate(id, condition) {
+   return (id.value.match(condition)) ? successMessage(id) : errorMessage(id);
+}
+
+function errorMessage(id) {
+    id.style.border = '2px solid red';
+    id.placeholder = "Incorrect data";
+    return false;
+}
+
+function successMessage(id) {
+    id.style.border = '2px solid green';
+    return true;
+}
+
+function allowRegistration() {
+       fetch(URL)
+            .then(r => r.json())
+            .then(checkPeriod)
+}
+
+function checkPeriod(bookings) {
+    bookings.forEach(booking => {
+        if(booking.room.number === document.getElementById("inputGroupRoom").value)
+        {
+        if((document.getElementById("startBooking").value > booking.endBooking ||
+              document.getElementById("finishBooking").value < booking.startBooking)){
+            createBooking();
+        }
+        else {
+            console.log("fail");
+        }
+        }
+    })
 }
