@@ -13,6 +13,7 @@ function updateBookingElement(bookingElement, booking) {
 function loadBooking() {
     document.getElementById("booking-area").style.display = "flex";
     document.getElementById("clients-area").style.display = "none";
+    document.getElementById("booking-container").style.display = "none";
     document.getElementById("rooms-area").style.display = "none";
     fetch(URL)
         .then(r => r.json())
@@ -28,8 +29,8 @@ function createBooking() {
     let roomn =  document.getElementById("inputGroupRoom").value;
     let startBooking = document.getElementById("startBooking").value;
     let finishBooking = document.getElementById("finishBooking").value;
-
-    fetch(URL, {
+    document.getElementById("booking-container").style.display = "none";
+    return fetch(URL, {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
@@ -47,7 +48,7 @@ function createBooking() {
                     type : size
                 },
                 startBooking : startBooking,
-                finishBooking : finishBooking
+                endBooking : finishBooking
             })
         }
     )
@@ -57,9 +58,12 @@ function createBooking() {
 
 }
 
-function createXlient() {
+function createClient() {
+    let fname = document.getElementById("firstname").value;
+    let lname = document.getElementById("lastname").value;
+    let phone = document.getElementById("phone").value;
 
-    fetch(URL_CLIENTS ,{
+    return fetch(URL_CLIENTS ,{
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/json'
@@ -67,7 +71,7 @@ function createXlient() {
         method: 'post',
         body: JSON.stringify({
             firstname : fname,
-            secondname : sname,
+            secondname : lname,
             phone: phone
         })
     });
@@ -107,6 +111,7 @@ function updateRoomElement(roomElement, room) {
 
 function loadRooms() {
     document.getElementById("booking-area").style.display = "none";
+    document.getElementById("booking-container").style.display = "none";
     document.getElementById("clients-area").style.display = "none";
     document.getElementById("rooms-area").style.display = "flex";
     fetch(URL_ROOMS)
@@ -136,6 +141,7 @@ function updateClientElement(clientElement, client) {
 function loadClients() {
     document.getElementById("booking-area").style.display = "none";
     document.getElementById("rooms-area").style.display = "none";
+    document.getElementById("booking-container").style.display = "none";
     document.getElementById("clients-area").style.display = "flex";
     fetch(URL_CLIENTS)
         .then(r => r.json())
@@ -150,4 +156,9 @@ function deleteClient(obj) {
     })
         .then(r => r.json())
         .then(loadBooking)
+}
+
+function openCreatingForm() {
+    document.getElementById("booking-area").style.display = "none";
+    document.getElementById("booking-container").style.display = "flex";
 }

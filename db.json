@@ -1,52 +1,64 @@
 {
   "reservations": [
     {
-      "id": 1,
-      "bookingNumber": 1,
       "client": {
-        "id": 1,
-        "firstname": "Vladimir",
-        "secondname": "Putin",
-        "phone": "+380979929999"
+        "firstname": "Michael",
+        "secondname": "Tyoply",
+        "phone": "+380611111111"
       },
       "room": {
-        "id": 2,
-        "number": 14,
-        "category": "Standard",
-        "type": "DBL"
+        "number": "3",
+        "category": "Economy",
+        "type": "SGL"
       },
-      "startBooking": "2018-07-1",
-      "endBooking": "2018-07-11"
+      "startBooking": "2018-07-12",
+      "endBooking": "2018-07-19",
+      "id": 1
     },
     {
       "client": {
-        "firstname": "Влад",
-        "secondname": "Тимофеев",
-        "phone": "666477563"
+        "firstname": "Maxim",
+        "secondname": "Berezovskiy",
+        "phone": "+380509738962"
       },
       "room": {
-        "number": "1",
+        "number": "2",
         "category": "Luxury",
-        "type": "SGL"
+        "type": "DBL"
       },
-      "startBooking": "2018-07-05",
-      "finishBooking": "2018-07-18",
+      "startBooking": "2018-07-12",
+      "endBooking": "2018-07-19",
       "id": 2
     },
     {
       "client": {
-        "firstname": "Влад",
-        "secondname": "Тимофеев",
-        "phone": "666477563"
+        "firstname": "Dmytro",
+        "secondname": "Zaharchenko",
+        "phone": "+380509733333"
       },
       "room": {
         "number": "1",
+        "category": "Standard",
+        "type": "SGL"
+      },
+      "startBooking": "2018-07-20",
+      "endBooking": "2018-07-21",
+      "id": 3
+    },
+    {
+      "client": {
+        "firstname": "Vladislav",
+        "secondname": "Timofeev",
+        "phone": "+380666477563"
+      },
+      "room": {
+        "number": "3",
         "category": "Luxury",
         "type": "SGL"
       },
-      "startBooking": "",
-      "finishBooking": "",
-      "id": 3
+      "startBooking": "2018-07-30",
+      "endBooking": "2018-07-31",
+      "id": 4
     }
   ],
   "rooms": [
@@ -77,28 +89,28 @@
   ],
   "clients": [
     {
-      "id": 1,
-      "firstname": "Vladimir",
-      "secondname": "Putin",
-      "phone": "+380979929999"
+      "firstname": "Michael",
+      "secondname": "Tyoply",
+      "phone": "+380611111111",
+      "id": 6
     },
     {
-      "id": 2,
       "firstname": "Maxim",
-      "secondname": "Galkin",
-      "phone": "+380979929991"
+      "secondname": "Berezovskiy",
+      "phone": "+380509738962",
+      "id": 7
     },
     {
-      "id": 3,
-      "firstname": "Michael",
-      "secondname": "Gorshnev",
-      "phone": "+380979929992"
+      "firstname": "Dmytro",
+      "secondname": "Zaharchenko",
+      "phone": "+380509733333",
+      "id": 8
     },
     {
-      "id": 4,
-      "firstname": "Michael",
-      "secondname": "Gorshnev",
-      "phone": "+380979922292"
+      "firstname": "Vladislav",
+      "secondname": "Timofeev",
+      "phone": "+380666477563",
+      "id": 9
     }
   ]
 }

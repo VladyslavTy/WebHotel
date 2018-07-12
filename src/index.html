@@ -3,6 +3,7 @@
 <head><title>Hotel</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <script src="js/script.js"></script>
 
 <body>
@@ -59,9 +60,9 @@
     <div class="col-lg-2 "></div>
     <div class="col-md-8">
         <table class="table shadow" id="bookingTable">
-            <thead class="thead-dark border border-dark">
+            <thead class="thead-dark border border-dark container">
             <tr>
-                <th>#</th>
+                <th><button class="adder" onclick="openCreatingForm()">+</button></th>
                 <th>Name</th>
                 <th>Room</th>
                 <th>Start of Booking</th>
@@ -97,7 +98,7 @@
     <div class="col-md-8">
         <table class="table shadow" id="clientsTable">
             <thead class="thead-dark border border-dark">
-            <th>Number</th>
+            <th>#</th>
             <th>Firstname</th>
             <th>Secondname</th>
             <th>Phone</th>
@@ -109,69 +110,70 @@
     <div class="col-md-2"></div>
 </div>
 <!--<button class="btn btn-success" onclick="modalForm()"></button>-->
-<div class="booking-form col-md-5 border ">
-    <form class="form" id="form">
-        <div class="form-row col-12">
-            <div class="form-group col-4 mb-3">
-                <label>First name</label>
-                <input type="text" class="form-control" id="firstname" placeholder="First name">
+<div class="col-12 " id="booking-container">
+    <div class="booking-form col-5 border offset-3 ">
+        <form class="form" id="form">
+            <div class="form-row col-12">
+                <div class="form-group col-4 mb-3">
+                    <label>First name</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="First name">
+                </div>
+                <div class="form-group col-4 mb-3">
+                    <label>Last name</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Last name">
+                </div>
+                <div class="form-group col-4 mb-3">
+                    <label>Phone</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Phone">
+                </div>
             </div>
-            <div class="form-group col-4 mb-3">
-                <label>Last name</label>
-                <input type="text" class="form-control" id="lastname" placeholder="Last name">
-            </div>
-            <div class="form-group col-4 mb-3">
-                <label>Phone</label>
-                <input type="text" class="form-control" id="phone" placeholder="Phone">
-            </div>
-        </div>
-        <div class="form-row col-12">
-            <div class="form-group col-4 mb-2">
-                <label>Category</label>
-                <select class="custom-select" id="inputGroupCategory">
-                    <option value="Luxury">Luxury</option>
-                    <option value="Standard">Standard</option>
-                    <option value="Economy">Economy</option>
-                </select>
+            <div class="form-row col-12">
+                <div class="form-group col-4 mb-2">
+                    <label>Category</label>
+                    <select class="custom-select" id="inputGroupCategory">
+                        <option value="Luxury">Luxury</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Economy">Economy</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-4 mb-2">
+                    <label>Size</label>
+                    <select class="custom-select" id="inputGroupSize">
+                        <option value="SGL">SGL</option>
+                        <option value="DBL">DBL</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-4 mb-3">
+                    <label>Room</label>
+                    <select class="custom-select" id="inputGroupRoom">
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="form-group col-4 mb-2">
-                <label>Size</label>
-                <select class="custom-select" id="inputGroupSize">
-                    <option value="SGL">SGL</option>
-                    <option value="DBL">DBL</option>
-                </select>
+            <div class="form-row col-12 mb-2">
+                <label for="startBooking" class="col-5">Start Booking Date</label>
+                <label for="finishBooking" class="col-5">Finish Booking Date</label>
+            </div>
+            <div class="form-row col-12 mb-2">
+                <div class="form-group col-5">
+                    <input type="date" class="form-control" id="startBooking">
+                </div>
+                <div class="form-group col-5">
+                    <input type="date" class="form-control" id="finishBooking">
+                </div>
+                <div class="form-group col-2" style="margin-top: 1px">
+                    <button type="submit" onclick="createBooking(); createClient()" class="btn btn-success col-12">Add</button>
+                </div>
             </div>
 
-            <div class="form-group col-4 mb-3">
-                <label>Room</label>
-                <select class="custom-select" id="inputGroupRoom">
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-row col-12 mb-2">
-            <label for="startBooking" class="col-5">Start Booking Date</label>
-            <label for="finishBooking" class="col-5">Finish Booking Date</label>
-        </div>
-        <div class="form-row col-12 mb-2">
-            <div class="form-group col-5">
-                <input type="date" class="form-control" id="startBooking">
-            </div>
-            <div class="form-group col-5">
-                <input type="date" class="form-control" id="finishBooking">
-            </div>
-            <div class="form-group col-2" style="margin-top: 1px">
-                <button type="submit" onclick="createBooking()" class="btn btn-success col-12">Add</button>
-            </div>
-        </div>
-
-    </form>
+        </form>
+    </div>
 </div>
-
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
