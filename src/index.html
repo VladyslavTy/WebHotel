@@ -53,6 +53,7 @@
         <td class="clientfName"></td>
         <td class="clientsName"></td>
         <td class="clientPhone"></td>
+        <td class="clientDate"></td>
     </tr>
 </template>
 
@@ -102,6 +103,7 @@
             <th>Firstname</th>
             <th>Secondname</th>
             <th>Phone</th>
+            <th>Registration time</th>
             </thead>
             <tbody id="clients" class="clients">
             </tbody>
@@ -130,7 +132,7 @@
             <div class="form-row col-12">
                 <div class="form-group col-4 mb-2">
                     <label>Category</label>
-                    <select class="custom-select" id="inputGroupCategory">
+                    <select class="custom-select" id="inputGroupCategory" onclick="formRoomsGroup()">
                         <option value="Luxury">Luxury</option>
                         <option value="Standard">Standard</option>
                         <option value="Economy">Economy</option>
@@ -139,7 +141,7 @@
 
                 <div class="form-group col-4 mb-2">
                     <label>Size</label>
-                    <select class="custom-select" id="inputGroupSize">
+                    <select class="custom-select" id="inputGroupSize" onclick="formRoomsGroup()">
                         <option value="SGL">SGL</option>
                         <option value="DBL">DBL</option>
                     </select>
@@ -147,7 +149,7 @@
 
                 <div class="form-group col-4 mb-3">
                     <label>Room</label>
-                    <select class="custom-select" id="inputGroupRoom" onfocus="formRoomsGroup() ">
+                    <select class="custom-select" id="inputGroupRoom">
 
                     </select>
                 </div>
@@ -165,7 +167,7 @@
                     <input type="date" class="form-control" id="finishBooking">
                 </div>
                 <div class="form-group col-2" style="margin-top: 1px">
-                    <button type="submit" onclick="allowRegistration()//validateForm(event); createBooking(); createClient();" class="btn btn-success col-12">Add</button>
+                    <button type="submit" onclick="registration()/**///createClient(); createBooking() " class="btn btn-success col-12">Add</button>
                 </div>
             </div>
 

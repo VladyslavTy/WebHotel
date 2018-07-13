@@ -26,7 +26,7 @@ function createBooking() {
     let phone = document.getElementById("phone").value;
     let category = document.getElementById("inputGroupCategory").value;
     let size = document.getElementById("inputGroupSize").value;
-    let roomn =  document.getElementById("inputGroupRoom").value;
+    let roomNumber =  document.getElementById("inputGroupRoom").value;
     let startBooking = document.getElementById("startBooking").value;
     let finishBooking = document.getElementById("finishBooking").value;
     document.getElementById("booking-container").style.display = "none";
@@ -43,7 +43,7 @@ function createBooking() {
                     phone : phone
                 },
                 room : {
-                    number : roomn,
+                    number : roomNumber,
                     category : category,
                     type : size
                 },
@@ -53,7 +53,11 @@ function createBooking() {
         }
     )
         .then(r => r.json())
+        .then(createClient)
         .then(loadBooking)
+}
+
+function addBooking() {
 
 
 }
@@ -71,7 +75,7 @@ function createClient() {
     let fname = document.getElementById("firstname").value;
     let lname = document.getElementById("lastname").value;
     let phone = document.getElementById("phone").value;
-
+    let now = new Date();
     return fetch(URL_CLIENTS ,{
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -81,7 +85,8 @@ function createClient() {
         body: JSON.stringify({
             firstname : fname,
             secondname : lname,
-            phone: phone
+            phone: phone,
+            odate : now
         })
     });
 
@@ -144,6 +149,7 @@ function updateClientElement(clientElement, client) {
     clientElement.querySelector('.clientsName').innerText = client.secondname;
     clientElement.querySelector('.clientfName').innerText = client.firstname;
     clientElement.querySelector('.clientPhone').innerText = client.phone;
+    clientElement.querySelector('.clientDate').innerText = client.odate;
 }
 
 function loadClients() {
@@ -195,6 +201,7 @@ function validate(id, condition) {
 
 function errorMessage(id) {
     id.style.border = '2px solid red';
+    id.value = "";
     id.placeholder = "Incorrect data";
     return false;
 }
@@ -204,23 +211,39 @@ function successMessage(id) {
     return true;
 }
 
-function allowRegistration() {
+function registration() {
+    if(validateForm()){
        fetch(URL)
             .then(r => r.json())
-            .then(checkPeriod)
+            .then(createBooking)
+    }
 }
 
 function checkPeriod(bookings) {
-    bookings.forEach(booking => {
-        if(booking.room.number === document.getElementById("inputGroupRoom").value)
-        {
-        if((document.getElementById("startBooking").value > booking.endBooking ||
-              document.getElementById("finishBooking").value < booking.startBooking)){
-            createBooking();
+    let bool = true;
+    let startDate = document.getElementById("startBooking").value;
+    let finishDate = document.getElementById("finishBooking").value;
+    let roomNumber = document.getElementById("inputGroupRoom").value;
+    let bookingroomnumber;
+    for (let i = 0; i <= bookings.length; i++) {
+        bookingroomnumber = bookings[i]["room"]["number"];
+        if (bookingroomnumber === roomNumber) {
+            if ((startDate > bookings[i].endBooking ||
+                finishDate < bookings[i].startBooking)) {
+                bool = true;
+            }
+            else {
+                bool = false;
+                break;
+            }
         }
-        else {
-            console.log("fail");
-        }
-        }
-    })
+        return bool;
+    }
 }
+
+function allowRegistration(bookings) {
+    if(checkPeriod(bookings)){
+        createBooking();
+    }
+}
+
