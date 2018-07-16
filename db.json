@@ -7,7 +7,7 @@
         "phone": "+380974040018"
       },
       "room": {
-        "number": "11",
+        "number": 11,
         "category": "Standard",
         "type": "DBL"
       },
@@ -22,7 +22,7 @@
         "phone": "+380456440018"
       },
       "room": {
-        "number": "11",
+        "number": 11,
         "category": "Standard",
         "type": "DBL"
       },
@@ -37,7 +37,7 @@
         "phone": "+380666477563"
       },
       "room": {
-        "number": "10",
+        "number": 10,
         "category": "Luxury",
         "type": "DBL"
       },
@@ -47,125 +47,89 @@
     },
     {
       "client": {
-        "firstname": "Michael",
-        "secondname": "Tyoply",
-        "phone": "+380666477563"
-      },
-      "room": {
-        "number": "15",
-        "category": "Standard",
-        "type": "SGL"
-      },
-      "startBooking": "2018-07-29",
-      "endBooking": "2018-07-31",
-      "id": 4
-    },
-    {
-      "client": {
-        "firstname": "Vladislav",
+        "firstname": "Vlad",
         "secondname": "Timofeev",
-        "phone": "+380666477563"
+        "phone": "+380661231212"
       },
       "room": {
-        "number": "21",
+        "number": "10",
         "category": "Luxury",
-        "type": "SGL"
+        "type": "DBL"
       },
-      "startBooking": "2018-07-25",
-      "endBooking": "2018-07-30",
-      "id": 5
+      "startBooking": "2018-07-01",
+      "endBooking": "2018-07-12",
+      "id": 4
     }
   ],
   "rooms": [
     {
-      "id": 1,
-      "number": 10,
-      "category": "Luxury",
-      "type": "DBL",
-      "reservationList": [
-        {
-          "id": 1,
-          "firstname": "Dmytro",
-          "secondname": "Zaharchenko",
-          "phone": "+380666477563",
-          "startBooking": "2018-07-23",
-          "endBooking": "2018-07-25"
-        },
-        {
-          "id": 2,
-          "firstname": "Dmytro",
-          "secondname": "Zaharchenko",
-          "phone": "+380666477563",
-          "startBooking": "2018-07-23",
-          "endBooking": "2018-07-25"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "number": 11,
-      "category": "Standard",
-      "type": "DBL"
-    },
-    {
-      "id": 3,
-      "number": 12,
-      "category": "Economy",
-      "type": "SGL"
-    },
-    {
-      "id": 4,
-      "number": 13,
-      "category": "Standard",
-      "type": "SGL"
-    },
-    {
-      "id": 5,
-      "number": 14,
-      "category": "Economy",
-      "type": "SGL"
-    },
-    {
-      "id": 6,
-      "number": 15,
-      "category": "Standard",
-      "type": "SGL"
-    },
-    {
-      "id": 7,
-      "number": 16,
-      "category": "Economy",
-      "type": "DBL"
-    },
-    {
-      "id": 8,
-      "number": 17,
-      "category": "Economy",
-      "type": "SGL"
-    },
-    {
-      "id": 9,
-      "number": 18,
-      "category": "Standard",
-      "type": "DBL"
-    },
-    {
       "id": 10,
-      "number": 19,
-      "category": "Economy",
+      "category": "Luxury",
       "type": "DBL"
     },
     {
       "id": 11,
-      "number": 20,
+      "category": "Standard",
+      "type": "DBL",
+      "reservationList": []
+    },
+    {
+      "id": 12,
+      "category": "Economy",
+      "type": "SGL"
+    },
+    {
+      "id": 13,
       "category": "Standard",
       "type": "SGL"
     },
     {
-      "id": 12,
-      "number": 21,
+      "id": 14,
+      "category": "Economy",
+      "type": "SGL",
+      "reservationList": []
+    },
+    {
+      "id": 15,
+      "category": "Standard",
+      "type": "SGL",
+      "reservationList": []
+    },
+    {
+      "id": 16,
+      "category": "Economy",
+      "type": "DBL",
+      "reservationList": []
+    },
+    {
+      "id": 17,
+      "category": "Economy",
+      "type": "SGL",
+      "reservationList": []
+    },
+    {
+      "id": 18,
+      "category": "Standard",
+      "type": "DBL",
+      "reservationList": []
+    },
+    {
+      "id": 19,
+      "category": "Economy",
+      "type": "DBL",
+      "reservationList": []
+    },
+    {
+      "id": 20,
+      "category": "Standard",
+      "type": "SGL",
+      "reservationList": []
+    },
+    {
+      "id": 21,
       "category": "Luxury",
-      "type": "SGL"
+      "type": "SGL",
+      "reservationList": []
     }
   ],
   "clients": [
@@ -203,6 +167,202 @@
       "phone": "+380666477563",
       "odate": "2018-07-13T12:39:55.895Z",
       "id": 5
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Tihomirov",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T20:45:23.681Z",
+      "id": 6
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Dasnitsky",
+      "phone": "+380970000001",
+      "odate": "2018-07-16T20:46:07.714Z",
+      "id": 7
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Dasnitsky",
+      "phone": "+380970000001",
+      "odate": "2018-07-16T20:46:31.759Z",
+      "id": 8
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Dasnitsky",
+      "phone": "+380970000001",
+      "odate": "2018-07-16T20:47:58.170Z",
+      "id": 9
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Dasnitsky",
+      "phone": "+380970000001",
+      "odate": "2018-07-16T20:48:34.397Z",
+      "id": 10
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Dasnitsky",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T20:51:02.086Z",
+      "id": 11
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Tihomirov",
+      "phone": "+3803661231212",
+      "odate": "2018-07-16T20:55:17.928Z",
+      "id": 12
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Tihomirov",
+      "phone": "+380970000001",
+      "odate": "2018-07-16T20:56:41.351Z",
+      "id": 13
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Timofeev",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T20:59:37.668Z",
+      "id": 14
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Dasnitsky",
+      "phone": "+3803661231212",
+      "odate": "2018-07-16T21:02:41.841Z",
+      "id": 15
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Dasnitsky",
+      "phone": "+3803661231212",
+      "odate": "2018-07-16T21:02:41.841Z",
+      "id": 16
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Dasnitsky",
+      "phone": "+380970000001",
+      "odate": "2018-07-16T21:04:05.791Z",
+      "id": 17
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Dasnitsky",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T21:04:28.217Z",
+      "id": 18
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Tihomirov",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T21:10:50.707Z",
+      "id": 19
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Tihomirov",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T21:11:48.757Z",
+      "id": 20
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Tihomirov",
+      "phone": "+380974040018",
+      "odate": "2018-07-16T21:22:18.130Z",
+      "id": 21
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Tihomirov",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T21:22:49.567Z",
+      "id": 22
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Tihomirov",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T21:23:42.266Z",
+      "id": 23
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Tihomirov",
+      "phone": "+380970000001",
+      "odate": "2018-07-16T21:25:23.246Z",
+      "id": 24
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Timofeev",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T21:30:02.882Z",
+      "id": 25
+    },
+    {
+      "firstname": "Vlad",
+      "secondname": "Timofeev",
+      "phone": "+380970000001",
+      "odate": "2018-07-16T21:31:31.165Z",
+      "id": 26
+    },
+    {
+      "firstname": "v",
+      "secondname": "v",
+      "phone": "+3803661231212",
+      "odate": "2018-07-16T21:32:29.904Z",
+      "id": 27
+    },
+    {
+      "firstname": "c",
+      "secondname": "c",
+      "phone": "+3803661231212",
+      "odate": "2018-07-16T21:33:05.695Z",
+      "id": 28
+    },
+    {
+      "firstname": "v",
+      "secondname": "v",
+      "phone": "+380970000001",
+      "odate": "2018-07-16T21:34:20.638Z",
+      "id": 29
+    },
+    {
+      "firstname": "v",
+      "secondname": "v",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T21:38:23.415Z",
+      "id": 30
+    },
+    {
+      "firstname": "v",
+      "secondname": "v",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T21:39:23.457Z",
+      "id": 31
+    },
+    {
+      "firstname": "v",
+      "secondname": "v",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T21:39:23.457Z",
+      "id": 32
+    },
+    {
+      "firstname": "v",
+      "secondname": "v",
+      "phone": "+380661231212",
+      "odate": "2018-07-16T21:40:56.982Z",
+      "id": 33
     }
   ]
 }

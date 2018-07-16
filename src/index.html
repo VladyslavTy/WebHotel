@@ -7,7 +7,7 @@
     <script src="js/script.js"></script>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand navbar-dark">
     <span class="navbar-brand mb-0 h1">Hotel</span>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -32,8 +32,7 @@
         <td class="startPeriod"></td>
         <td class="endPeriod"></td>
         <td class="d-flex col-12">
-            <button type="button" class="btn btn-outline-info btn-sm col-5 mr-1">Edit</button>
-            <button type="button" class="btn btn-outline-danger btn-sm col-6" id="deleteBooking"
+            <button type="button" class="btn btn-outline-danger btn-sm col-12" id="deleteBooking"
                     onclick="deleteBooking(this)">
                 Delete
             </button>
@@ -41,7 +40,7 @@
     </tr>
 </template>
 <template id="roomList">
-    <tr class="room border border-gray">
+    <tr class="room border border-gray" onclick="roomBooking(this)">
         <td class="roomNumber"></td>
         <td class="room-size"></td>
         <td class="room-category"></td>
@@ -54,6 +53,16 @@
         <td class="clientsName"></td>
         <td class="clientPhone"></td>
         <td class="clientDate"></td>
+        <td class="d-flex col-12">
+        <button type="button" class="btn btn-outline-info btn-sm col-12" onclick="openEditForm()">Edit</button>
+        </td>
+    </tr>
+</template>
+<template id="roomBookingList">
+    <tr class="roomBooking border border-gray">
+        <td class="bookingName"></td>
+        <td class="bookingStartPeriod"></td>
+        <td class="bookingEndPeriod"></td>
     </tr>
 </template>
 
@@ -111,6 +120,23 @@
     </div>
     <div class="col-md-2"></div>
 </div>
+
+<div class="row roomsb-area col-lg-12" id="roomsBookingArea">
+    <div class="col-md-2 "></div>
+    <div class="col-md-8">
+        <table class="table shadow" id="roomsBookingTable">
+            <thead class="thead-dark border border-dark">
+            <th>Name</th>
+            <th>Start of Booking</th>
+            <th>Finish of Booking</th>
+            </thead>
+            <tbody id="roomsBooking" class="roomsBooking">
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
 <!--<button class="btn btn-success" onclick="modalForm()"></button>-->
 <div class="col-12 " id="booking-container">
     <div class="booking-form col-5 border offset-3 ">
@@ -167,13 +193,14 @@
                     <input type="date" class="form-control" id="finishBooking">
                 </div>
                 <div class="form-group col-2" style="margin-top: 1px">
-                    <button type="submit" onclick="registration()/**///createClient(); createBooking() " class="btn btn-success col-12">Add</button>
+                    <button type="submit" onclick="registration();/**///createClient(); createBooking() " class="btn btn-success col-12">Add</button>
                 </div>
             </div>
 
         </form>
     </div>
 </div>
+
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
@@ -184,6 +211,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-
 </body>
 </html>

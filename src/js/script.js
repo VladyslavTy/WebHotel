@@ -2,22 +2,48 @@ const URL = "http://localhost:3000/reservations";
 const URL_ROOMS = "http://localhost:3000/rooms";
 const URL_CLIENTS = "http://localhost:3000/clients";
 
-function updateBookingElement(bookingElement, booking) {
-    bookingElement.querySelector('.bookingNumber').innerText = booking.id;
-    bookingElement.querySelector('.name').innerText = booking.client.firstname + " " + booking.client.secondname;
-    bookingElement.querySelector('.room').innerText = booking.room.number;
-    bookingElement.querySelector('.startPeriod').innerText = booking.startBooking;
-    bookingElement.querySelector('.endPeriod').innerText = booking.endBooking;
-}
-
-function loadBooking() {
-    document.getElementById("booking-area").style.display = "flex";
-    document.getElementById("clients-area").style.display = "none";
-    document.getElementById("booking-container").style.display = "none";
+function roomBooking(obj) {
+    document.getElementById("roomsBookingArea").style.display = "flex";
     document.getElementById("rooms-area").style.display = "none";
+    let id = obj.querySelector(".roomNumber").innerHTML;
+
     fetch(URL)
         .then(r => r.json())
-        .then(renderBooking);
+        .then(reservations => {
+             return  reservations.filter(reservation =>
+                reservation.room.number.toString() === id);
+        })
+        .then(renderRoomBooking)
+ }
+
+function deleteBooking(obj) {
+    let id = obj.parentElement.parentElement.querySelector(".bookingNumber").innerHTML;
+    fetch(URL + '/' + id, {
+        method: 'delete'
+    })
+        .then(r => r.json())
+        .then(loadBooking)
+}
+
+function createClient() {
+    let fname = document.getElementById("firstname").value;
+    let lname = document.getElementById("lastname").value;
+    let phone = document.getElementById("phone").value;
+    let now = new Date();
+    return fetch(URL_CLIENTS ,{
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        method: 'post',
+        body: JSON.stringify({
+            firstname : fname,
+            secondname : lname,
+            phone: phone,
+            odate : now
+        })
+    });
+
 }
 
 function createBooking() {
@@ -53,43 +79,35 @@ function createBooking() {
         }
     )
         .then(r => r.json())
-        .then(createClient)
         .then(loadBooking)
 }
 
-function addBooking() {
-
-
+function updateRoomElement(roomElement, room) {
+    roomElement.querySelector('.roomNumber').innerText = room.id;
+    roomElement.querySelector('.room-size').innerText = room.type;
+    roomElement.querySelector('.room-category').innerText = room.category;
 }
 
-function deleteBooking(obj) {
-    let id = obj.parentElement.parentElement.querySelector(".bookingNumber").innerHTML;
-    fetch(URL + '/' + id, {
-        method: 'delete'
-    })
-        .then(r => r.json())
-        .then(loadBooking)
+function updateRoomBookingElement(bookingElement, booking) {
+    bookingElement.querySelector('.bookingName').innerText = booking.client.firstname + " " + booking.client.secondname;
+    bookingElement.querySelector('.bookingStartPeriod').innerText = booking.startBooking;
+    bookingElement.querySelector('.bookingEndPeriod').innerText = booking.endBooking;
 }
 
-function createClient() {
-    let fname = document.getElementById("firstname").value;
-    let lname = document.getElementById("lastname").value;
-    let phone = document.getElementById("phone").value;
-    let now = new Date();
-    return fetch(URL_CLIENTS ,{
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-        },
-        method: 'post',
-        body: JSON.stringify({
-            firstname : fname,
-            secondname : lname,
-            phone: phone,
-            odate : now
-        })
-    });
+function updateClientElement(clientElement, client) {
+    clientElement.querySelector('.clientNumber').innerText = client.id;
+    clientElement.querySelector('.clientsName').innerText = client.secondname;
+    clientElement.querySelector('.clientfName').innerText = client.firstname;
+    clientElement.querySelector('.clientPhone').innerText = client.phone;
+    clientElement.querySelector('.clientDate').innerText = client.odate;
+}
 
+function updateBookingElement(bookingElement, booking) {
+    bookingElement.querySelector('.bookingNumber').innerText = booking.id;
+    bookingElement.querySelector('.name').innerText = booking.client.firstname + " " + booking.client.secondname;
+    bookingElement.querySelector('.room').innerText = booking.room.number;
+    bookingElement.querySelector('.startPeriod').innerText = booking.startBooking;
+    bookingElement.querySelector('.endPeriod').innerText = booking.endBooking;
 }
 
 function renderBooking(bookingsList) {
@@ -100,6 +118,18 @@ function renderBooking(bookingsList) {
     for (let booking of bookingsList) {
         let bookingClone = bookingElement.cloneNode(true);
         updateBookingElement(bookingClone, booking);
+        bookingList.appendChild(bookingClone);
+    }
+}
+
+function renderRoomBooking(bookingsList) {
+    let templateEl = document.getElementById('roomBookingList');
+    let bookingElement = templateEl.content.querySelector(".roomBooking");
+    let bookingList = document.getElementById('roomsBooking');
+    bookingList.innerHTML = " ";
+    for (let booking of bookingsList) {
+        let bookingClone = bookingElement.cloneNode(true);
+        updateRoomBookingElement(bookingClone, booking);
         bookingList.appendChild(bookingClone);
     }
 }
@@ -116,22 +146,6 @@ function renderRooms(roomList) {
     });
 }
 
-function updateRoomElement(roomElement, room) {
-    roomElement.querySelector('.roomNumber').innerText = room.number;
-    roomElement.querySelector('.room-size').innerText = room.type;
-    roomElement.querySelector('.room-category').innerText = room.category;
-}
-
-function loadRooms() {
-    document.getElementById("booking-area").style.display = "none";
-    document.getElementById("booking-container").style.display = "none";
-    document.getElementById("clients-area").style.display = "none";
-    document.getElementById("rooms-area").style.display = "flex";
-    fetch(URL_ROOMS)
-        .then(r => r.json())
-        .then(renderRooms);
-}
-
 function renderClients(clientList) {
     let templateEl = document.getElementById('clientList');
     let clientElement = templateEl.content.querySelector(".client");
@@ -144,17 +158,21 @@ function renderClients(clientList) {
     }
 }
 
-function updateClientElement(clientElement, client) {
-    clientElement.querySelector('.clientNumber').innerText = client.id;
-    clientElement.querySelector('.clientsName').innerText = client.secondname;
-    clientElement.querySelector('.clientfName').innerText = client.firstname;
-    clientElement.querySelector('.clientPhone').innerText = client.phone;
-    clientElement.querySelector('.clientDate').innerText = client.odate;
+function loadRooms() {
+    document.getElementById("booking-area").style.display = "none";
+    document.getElementById("booking-container").style.display = "none";
+    document.getElementById("clients-area").style.display = "none";
+    document.getElementById("roomsBookingArea").style.display = "none";
+    document.getElementById("rooms-area").style.display = "flex";
+    fetch(URL_ROOMS)
+        .then(r => r.json())
+        .then(renderRooms);
 }
 
 function loadClients() {
     document.getElementById("booking-area").style.display = "none";
     document.getElementById("rooms-area").style.display = "none";
+    document.getElementById("roomsBookingArea").style.display = "none";
     document.getElementById("booking-container").style.display = "none";
     document.getElementById("clients-area").style.display = "flex";
     fetch(URL_CLIENTS)
@@ -162,8 +180,24 @@ function loadClients() {
         .then(renderClients);
 }
 
+function loadBooking() {
+    document.getElementById("booking-area").style.display = "flex";
+    document.getElementById("clients-area").style.display = "none";
+    document.getElementById("roomsBookingArea").style.display = "none";
+    document.getElementById("booking-container").style.display = "none";
+    document.getElementById("rooms-area").style.display = "none";
+    fetch(URL)
+        .then(r => r.json())
+        .then(renderBooking);
+}
+
 function openCreatingForm() {
     document.getElementById("booking-area").style.display = "none";
+    document.getElementById("booking-container").style.display = "flex";
+}
+
+function openEditForm() {
+    document.getElementById("clients-area").style.display = "none";
     document.getElementById("booking-container").style.display = "flex";
 }
 
@@ -180,8 +214,8 @@ function createRoomSelect(roomsList) {
         if(room.category === document.getElementById("inputGroupCategory").value &&
             room.type === document.getElementById("inputGroupSize").value){
             let elem = document.createElement('option');
-            elem.value = room.number;
-            elem.innerText = room.number;
+            elem.value = room.id;
+            elem.innerText = room.id;
             roomContainer.appendChild(elem);
         }
     })
@@ -216,8 +250,10 @@ function registration() {
        fetch(URL)
             .then(r => r.json())
             .then(createBooking)
+            .then(createClient)
     }
 }
+
 
 function checkPeriod(bookings) {
     let bool = true;
