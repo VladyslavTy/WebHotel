@@ -48,3 +48,11 @@
     padding-top: 5px;
     display: none;
 }
+
+#addButton {
+    display: none;
+}
+
+#updateButton{
+    display: none;
+}

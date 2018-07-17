@@ -47,17 +47,17 @@
     },
     {
       "client": {
-        "firstname": "Vlad",
-        "secondname": "Timofeev",
-        "phone": "+380661231212"
+        "firstname": "Vladislav",
+        "secondname": "Timofeevich",
+        "phone": "+380974040018"
       },
       "room": {
-        "number": "10",
+        "number": "21",
         "category": "Luxury",
-        "type": "DBL"
+        "type": "SGL"
       },
-      "startBooking": "2018-07-01",
-      "endBooking": "2018-07-12",
+      "startBooking": "2018-07-18",
+      "endBooking": "2018-07-20",
       "id": 4
     }
   ],
@@ -169,200 +169,11 @@
       "id": 5
     },
     {
-      "firstname": "Vlad",
-      "secondname": "Tihomirov",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T20:45:23.681Z",
+      "firstname": "",
+      "secondname": "",
+      "phone": "",
+      "odate": "2018-07-17T08:11:40.727Z",
       "id": 6
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Dasnitsky",
-      "phone": "+380970000001",
-      "odate": "2018-07-16T20:46:07.714Z",
-      "id": 7
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Dasnitsky",
-      "phone": "+380970000001",
-      "odate": "2018-07-16T20:46:31.759Z",
-      "id": 8
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Dasnitsky",
-      "phone": "+380970000001",
-      "odate": "2018-07-16T20:47:58.170Z",
-      "id": 9
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Dasnitsky",
-      "phone": "+380970000001",
-      "odate": "2018-07-16T20:48:34.397Z",
-      "id": 10
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Dasnitsky",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T20:51:02.086Z",
-      "id": 11
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Tihomirov",
-      "phone": "+3803661231212",
-      "odate": "2018-07-16T20:55:17.928Z",
-      "id": 12
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Tihomirov",
-      "phone": "+380970000001",
-      "odate": "2018-07-16T20:56:41.351Z",
-      "id": 13
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Timofeev",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T20:59:37.668Z",
-      "id": 14
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Dasnitsky",
-      "phone": "+3803661231212",
-      "odate": "2018-07-16T21:02:41.841Z",
-      "id": 15
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Dasnitsky",
-      "phone": "+3803661231212",
-      "odate": "2018-07-16T21:02:41.841Z",
-      "id": 16
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Dasnitsky",
-      "phone": "+380970000001",
-      "odate": "2018-07-16T21:04:05.791Z",
-      "id": 17
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Dasnitsky",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T21:04:28.217Z",
-      "id": 18
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Tihomirov",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T21:10:50.707Z",
-      "id": 19
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Tihomirov",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T21:11:48.757Z",
-      "id": 20
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Tihomirov",
-      "phone": "+380974040018",
-      "odate": "2018-07-16T21:22:18.130Z",
-      "id": 21
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Tihomirov",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T21:22:49.567Z",
-      "id": 22
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Tihomirov",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T21:23:42.266Z",
-      "id": 23
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Tihomirov",
-      "phone": "+380970000001",
-      "odate": "2018-07-16T21:25:23.246Z",
-      "id": 24
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Timofeev",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T21:30:02.882Z",
-      "id": 25
-    },
-    {
-      "firstname": "Vlad",
-      "secondname": "Timofeev",
-      "phone": "+380970000001",
-      "odate": "2018-07-16T21:31:31.165Z",
-      "id": 26
-    },
-    {
-      "firstname": "v",
-      "secondname": "v",
-      "phone": "+3803661231212",
-      "odate": "2018-07-16T21:32:29.904Z",
-      "id": 27
-    },
-    {
-      "firstname": "c",
-      "secondname": "c",
-      "phone": "+3803661231212",
-      "odate": "2018-07-16T21:33:05.695Z",
-      "id": 28
-    },
-    {
-      "firstname": "v",
-      "secondname": "v",
-      "phone": "+380970000001",
-      "odate": "2018-07-16T21:34:20.638Z",
-      "id": 29
-    },
-    {
-      "firstname": "v",
-      "secondname": "v",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T21:38:23.415Z",
-      "id": 30
-    },
-    {
-      "firstname": "v",
-      "secondname": "v",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T21:39:23.457Z",
-      "id": 31
-    },
-    {
-      "firstname": "v",
-      "secondname": "v",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T21:39:23.457Z",
-      "id": 32
-    },
-    {
-      "firstname": "v",
-      "secondname": "v",
-      "phone": "+380661231212",
-      "odate": "2018-07-16T21:40:56.982Z",
-      "id": 33
     }
   ]
 }

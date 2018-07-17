@@ -2,6 +2,7 @@ const URL = "http://localhost:3000/reservations";
 const URL_ROOMS = "http://localhost:3000/rooms";
 const URL_CLIENTS = "http://localhost:3000/clients";
 
+
 function roomBooking(obj) {
     document.getElementById("roomsBookingArea").style.display = "flex";
     document.getElementById("rooms-area").style.display = "none";
@@ -26,9 +27,9 @@ function deleteBooking(obj) {
 }
 
 function createClient() {
-    let fname = document.getElementById("firstname").value;
-    let lname = document.getElementById("lastname").value;
-    let phone = document.getElementById("phone").value;
+    let fname = document.getElementById("firstname").innerHTML;
+    let lname = document.getElementById("lastname").innerHTML;
+    let phone = document.getElementById("phone").innerHTML;
     let now = new Date();
     return fetch(URL_CLIENTS ,{
         headers: {
@@ -194,11 +195,40 @@ function loadBooking() {
 function openCreatingForm() {
     document.getElementById("booking-area").style.display = "none";
     document.getElementById("booking-container").style.display = "flex";
+    document.getElementById("addButton").style.display = "flex";
+    document.getElementById("updateButton").style.display = "none";
 }
 
-function openEditForm() {
+function openEditForm(obj) {
     document.getElementById("clients-area").style.display = "none";
+    document.getElementById("addButton").style.display = "none";
+    let fname = document.getElementById("firstname");
+    let lname = document.getElementById("lastname");
+    let phone = document.getElementById("phone");
+
+    let updateButton = document.getElementById("updateButton");
+    updateButton.style.display = "flex";
+    let id = obj.parentElement.parentElement.querySelector(".clientNumber");
+    fetch(URL_CLIENTS + '/' + id.innerHTML)
+        .then(r => r.json())
+        .then(function (client) {
+            fname.value = client.firstname;
+            lname.value = client.secondname;
+            phone.value = client.phone;
+        });
     document.getElementById("booking-container").style.display = "flex";
+}
+
+function updateClient(id) {
+    fetch(URL_CLIENTS + '/' + 2, {
+        method: "PATCH",
+        body: JSON.stringify({
+            firstname: firstname.value,
+            secondname: lastname.value,
+            phone: phone.value
+        })
+    })
+        .then(r => r.json())
 }
 
 function formRoomsGroup() {
@@ -254,7 +284,6 @@ function registration() {
     }
 }
 
-
 function checkPeriod(bookings) {
     let bool = true;
     let startDate = document.getElementById("startBooking").value;
@@ -277,9 +306,4 @@ function checkPeriod(bookings) {
     }
 }
 
-function allowRegistration(bookings) {
-    if(checkPeriod(bookings)){
-        createBooking();
-    }
-}
 
